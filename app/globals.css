@@ -1,26 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 @import "tailwindcss";
 
+/* ── LUMA brand tokens ─────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --luma-amarillo: #EDCC3D;
+  --luma-naranja:  #EAB05A;
+  --luma-coral:    #D06A44;
+  --luma-rosa:     #DFA8C0;
+  --luma-verde:    #B8CC6E;
+  --luma-aqua:     #80C4B0;
+  --luma-crema:    #FAF0E8;
+  --luma-oscuro:   #2C2416;
+  --luma-gris:     #6B6358;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-luma-amarillo: var(--luma-amarillo);
+  --color-luma-naranja:  var(--luma-naranja);
+  --color-luma-coral:    var(--luma-coral);
+  --color-luma-rosa:     var(--luma-rosa);
+  --color-luma-verde:    var(--luma-verde);
+  --color-luma-aqua:     var(--luma-aqua);
+  --color-luma-crema:    var(--luma-crema);
+  --color-luma-oscuro:   var(--luma-oscuro);
+  --font-display:        'Fredoka', sans-serif;
+  --font-sans:           'Open Sans', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+* { -webkit-font-smoothing: antialiased; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--luma-crema);
+  color: var(--luma-oscuro);
+  font-family: 'Open Sans', sans-serif;
 }
+
+/* ── Real brand textures from identity files ─────── */
+.luma-tex-dots {
+  background-image: url('/brand/texturaLuma1.png');
+  background-size: 380px auto;
+  background-repeat: repeat;
+}
+.luma-tex-stripes {
+  background-image: url('/brand/texturaLuma2.png');
+  background-size: 220px auto;
+  background-repeat: repeat;
+}
+.luma-tex-elements {
+  background-image: url('/brand/texturaLuma3.png');
+  background-size: 460px auto;
+  background-repeat: repeat;
+}
+
+/* ── Animations ─────────────────────────────────── */
+@keyframes float-a {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-14px) rotate(5deg); }
+}
+@keyframes float-b {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50%       { transform: translateY(-9px) rotate(-6deg); }
+}
+@keyframes float-c {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-7px); }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes scan-line {
+  0%, 100% { top: 10%; }
+  50%       { top: 85%; }
+}
+
+.float-a { animation: float-a 5s ease-in-out infinite; }
+.float-b { animation: float-b 4s ease-in-out infinite; }
+.float-c { animation: float-c 3.5s ease-in-out infinite; }
+.animate-fade-up { animation: fade-up 0.55s ease-out both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.22s; }
+.delay-3 { animation-delay: 0.38s; }
